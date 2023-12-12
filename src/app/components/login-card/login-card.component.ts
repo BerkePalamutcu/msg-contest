@@ -12,6 +12,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login-form',
@@ -22,12 +23,15 @@ import { OnInit } from '@angular/core';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     FormsModule,
   ],
   templateUrl: './login-card.component.html',
   styleUrl: './login-card.component.scss',
 })
 export class LoginForm implements OnInit {
+  passVisible: string = 'visibility';
+
   loginFormControl = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.email]),
@@ -45,6 +49,15 @@ export class LoginForm implements OnInit {
       return this.loginFormControl.get('email')?.hasError('email')
         ? 'Not a valid email'
         : '';
+    }
+  }
+
+  changePassVisible() {
+    console.log('hello');
+    if (this.passVisible === 'visibility') {
+      this.passVisible = 'visibility_off';
+    } else {
+      this.passVisible = 'visibility';
     }
   }
 }

@@ -1,8 +1,8 @@
 <mat-card class="login-card">
   <img src="../../../assets/login-recycling.png" class="login-logo" />
-  <mat-card-title>Login .Msg Recycling </mat-card-title>
-  <mat-card-content>
-    <form class="example-form" [formGroup]="loginFormControl">
+  <mat-card-title class="title">Login .Msg Recycling </mat-card-title>
+  <mat-card-content class="content">
+    <form class="form" [formGroup]="loginFormControl">
       <mat-form-field class="form-field" appearance="outline">
         <mat-label>Email</mat-label>
         <input
@@ -19,9 +19,21 @@
 
       <mat-form-field class="form-field" appearance="outline">
         <mat-label>Password</mat-label>
-        <input type="password" matInput formControlName="password" />
+        @if(passVisible === 'visibility') {
+        <input type="password" matInput formControlName="password" />}
+        @else{<input type="text" matInput formControlName="password" />}
+        <mat-icon
+          matSuffix
+          [fontIcon]="passVisible"
+          class="icon"
+          (click)="changePassVisible()"
+          clickable
+        ></mat-icon>
       </mat-form-field>
-      <button mat-button>login</button>
+      <div class="btn-wrapper">
+        <button mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="accent">Register</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
