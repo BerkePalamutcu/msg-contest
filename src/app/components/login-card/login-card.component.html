@@ -1,0 +1,27 @@
+<mat-card class="login-card">
+  <img src="../../../assets/login-recycling.png" class="login-logo" />
+  <mat-card-title>Login .Msg Recycling </mat-card-title>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="loginFormControl">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. pat@example.com"
+        />
+
+        @if (loginFormControl.get("email")) {
+        <mat-error>{{ getErrorMessage() }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
+      <button mat-button>login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

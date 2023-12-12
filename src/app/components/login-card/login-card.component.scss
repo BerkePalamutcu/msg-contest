@@ -1,0 +1,18 @@
+.login-card {
+  display: flex;
+  align-items: center;
+  min-width: 40rem;
+  min-height: 20rem;
+  padding: 1rem;
+
+  .login-logo {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+}
