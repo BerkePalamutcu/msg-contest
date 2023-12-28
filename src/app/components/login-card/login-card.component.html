@@ -32,7 +32,13 @@
       </mat-form-field>
       <div class="btn-wrapper">
         <button mat-raised-button color="primary">Login</button>
-        <button mat-raised-button color="accent">Register</button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="navigateToRegisterPage()"
+        >
+          Sign Up
+        </button>
       </div>
     </form>
   </mat-card-content>

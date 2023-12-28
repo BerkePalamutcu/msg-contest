@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,6 +13,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -30,6 +31,8 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './login-card.component.scss',
 })
 export class LoginForm implements OnInit {
+  private router = inject(Router);
+
   passVisible: string = 'visibility';
 
   loginFormControl = new FormGroup({
@@ -42,7 +45,7 @@ export class LoginForm implements OnInit {
     this.loginFormControl.get('email')?.valueChanges.subscribe(console.log);
   }
 
-  getErrorMessage() {
+  public getErrorMessage() {
     if (this.loginFormControl.get('email')?.hasError('required')) {
       return 'You must enter a value';
     } else {
@@ -52,12 +55,15 @@ export class LoginForm implements OnInit {
     }
   }
 
-  changePassVisible() {
-    console.log('hello');
+  public changePassVisible() {
     if (this.passVisible === 'visibility') {
       this.passVisible = 'visibility_off';
     } else {
       this.passVisible = 'visibility';
     }
+  }
+
+  navigateToRegisterPage() {
+    this.router.navigate(['register']);
   }
 }
