@@ -1,0 +1,73 @@
+<div class="dialog-container">
+  <div class="form-container">
+
+    <h1 class="form-header">Add A New Recycling Center</h1>
+
+  <form [formGroup]="newRecyclingFormGroup">
+    <mat-form-field appearance="outline" class="country-select">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+          @for (item  of countries; track item.country){
+            <mat-option [value]="item.country">{{item.country}}</mat-option>
+          }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="city-select">
+      <mat-label>City</mat-label>
+      <mat-select formControlName="city">
+        @for(city of cities; track city){
+          <mat-option [value]="city">{{city}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <div class="input-wrapper">
+      <mat-form-field appearance="outline" class="recycling-name">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="recycling-address">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" class="address"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="recycling-hours">
+        <mat-label>Operating Hours</mat-label>
+        <input matInput formControlName="workHours" class="hours"/>
+      </mat-form-field>
+
+      <section>
+        <mat-checkbox formControlName="plasticBottles" class="checkbox-item plastic" color="primary">
+          Plastic Bottles
+        </mat-checkbox>
+        <mat-checkbox formControlName="aluminiumCans" class="checkbox-item"  color="primary">
+          Aluminium Cans
+        </mat-checkbox>
+        <mat-checkbox formControlName="metals" class="checkbox-item"  color="primary">
+          Metals
+        </mat-checkbox>
+        <mat-checkbox formControlName="glassContainers" class="checkbox-item"  color="primary">
+          Glass Containers
+        </mat-checkbox>
+        <mat-checkbox formControlName="paperAndCardboard" class="checkbox-item"  color="primary">
+          Paper and Cardboard
+        </mat-checkbox>
+        <mat-checkbox formControlName="electronicWaste" class="checkbox-item"  color="primary">
+          Electronic Waste
+        </mat-checkbox>
+
+      </section>
+    </div>
+
+
+    <div class="btn-wrapper">
+      <button mat-raised-button color="accent" (click)="closeDialog()">Cancel</button>
+      <button mat-raised-button color="primary">Save</button>
+    </div>
+
+
+  </form>
+  </div>
+</div>

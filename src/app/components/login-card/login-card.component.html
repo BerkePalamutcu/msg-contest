@@ -1,5 +1,5 @@
 <mat-card class="login-card">
-  <img src="../../../assets/login-recycling.png" class="login-logo" />
+  <img src="../../../assets/login-recycling.png" class="login-logo" alt="login logo"/>
   <mat-card-title class="title">Login .Msg Recycling </mat-card-title>
   <mat-card-content class="content">
     <form class="form" [formGroup]="loginFormControl">
@@ -27,11 +27,10 @@
           [fontIcon]="passVisible"
           class="icon"
           (click)="changePassVisible()"
-          clickable
         ></mat-icon>
       </mat-form-field>
       <div class="btn-wrapper">
-        <button mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
         <button
           mat-raised-button
           color="accent"

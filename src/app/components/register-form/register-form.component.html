@@ -3,49 +3,52 @@
     <mat-card-title class="register-title"
       >Register .Msg Recycling</mat-card-title
     >
-    <img src="../../../assets/register.png" class="register-logo" />
+    <img src="../../../assets/register.png" class="register-logo" alt="register-logo" />
 
-    <mat-stepper class="example-stepper" orientation="vertical">
-      <mat-step [stepControl]="firstFormGroup" label="E-mail">
-        <form [formGroup]="firstFormGroup" class="register-form">
+    <mat-stepper  orientation="horizontal" [linear]="true">
+      <mat-step [stepControl]="emailFormGroup" label="E-mail">
+        <form [formGroup]="emailFormGroup" class="register-form email">
           <mat-form-field appearance="outline">
             <mat-label>E-mail</mat-label>
             <input
               matInput
               placeholder="Enter your email address"
-              formControlName="firstCtrl"
+              formControlName="email"
               required
             />
           </mat-form-field>
-          <div>
+          <div class="btn-wrapper">
+            <button mat-raised-button color="accent" (click)="navigateToLoginPage()">
+             Back To Login
+            </button>
             <button mat-raised-button matStepperNext color="primary">
               Next
             </button>
+
           </div>
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="secondFormGroup" label="Password">
-        <form [formGroup]="secondFormGroup" class="register-form">
+      <mat-step [stepControl]="passwordFormGroup" label="Password">
+        <form [formGroup]="passwordFormGroup" class="register-form password">
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
+              formControlName="password"
               placeholder="Enter your password"
               required
               type="password"
             />
             <mat-icon
               matSuffix
-              clickable
               class="icon"
               (click)="changePassVisible()"
               [fontIcon]="passVisible"
             ></mat-icon>
           </mat-form-field>
           <div class="btn-wrapper">
-            <button mat-raised-button matStepperPrevious color="warn">
+            <button mat-raised-button matStepperPrevious color="accent">
               Back
             </button>
             <button mat-raised-button matStepperNext color="primary">
@@ -55,13 +58,13 @@
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="thirdFormGroup" label="Name & Last Name">
-        <form [formGroup]="thirdFormGroup" class="register-form">
+      <mat-step [stepControl]="namesFormGroup" label="Name & Last Name">
+        <form [formGroup]="namesFormGroup" class="register-form names">
           <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
             <input
               matInput
-              formControlName="thirdCtrl"
+              formControlName="name"
               placeholder="Ex. 12345678"
               required
             />
@@ -71,25 +74,48 @@
             <mat-label>Last Name</mat-label>
             <input
               matInput
-              formControlName="thirdCtrl"
+              formControlName="lastName"
               placeholder="Last Name"
               required
             />
           </mat-form-field>
 
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+          <div class="btn-wrapper">
+            <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            <button mat-raised-button matStepperNext color="primary">Next</button>
           </div>
         </form>
       </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-        </div>
+
+      <mat-step [stepControl]="addressFormGroup" label="Address Information">
+        <form [formGroup]="addressFormGroup" class="register-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Address Line 1</mat-label>
+            <input
+              matInput
+              formControlName="addressLine1"
+              placeholder="Ex. str Surduc Apt No: 4"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Address Line 2</mat-label>
+            <input
+              matInput
+              formControlName="addressLine2"
+              placeholder="Ex. Timisoara 35005"
+              required
+            />
+          </mat-form-field>
+
+          <div class="btn-wrapper">
+            <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            <button mat-raised-button color="primary" (click)="registerToApp()">Register</button>
+          </div>
+        </form>
       </mat-step>
-    </mat-stepper>
+
+     </mat-stepper>
   </mat-card-content>
 </mat-card>

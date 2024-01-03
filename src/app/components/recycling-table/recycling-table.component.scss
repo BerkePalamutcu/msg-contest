@@ -1,0 +1,54 @@
+.table-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+
+  .expansion{
+    margin-bottom: 1rem;
+    align-self: flex-end;
+    width: 100%;
+
+    .checkbox-container{
+      display: flex;
+      justify-content: space-between;
+
+      .checkbox-btn-wrapper{
+        display: flex;
+        gap: 1rem;
+      }
+
+      .checkbox-section{
+        display: flex;
+        gap: 1rem;
+
+        .checkbox-item{
+          display: flex;
+       }
+      }
+    }
+  }
+
+  .table-form {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .table-wrapper{
+    display: flex;
+    width: 100%;
+    .table{
+      margin-bottom: 1rem;
+      min-width: 100%;
+    }
+  }
+}
+
+.actions-wrapper{
+  align-self: flex-start;
+}
+
+

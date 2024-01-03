@@ -1,0 +1,42 @@
+.dialog-container{
+  width: 35rem;
+  height: 42rem;
+  margin: 2rem;
+  overflow: scroll;
+
+  .form-header{
+    text-align: center;
+    font-family: Roboto, serif;
+  }
+
+  .form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .btn-wrapper{
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .country-select{
+      display: flex;
+    }
+
+    .city-select{
+      display: flex;
+    }
+
+    .input-wrapper{
+      display: flex;
+      flex-direction: column;
+
+      .address , .hours{
+        resize: none !important;
+      }
+
+    }
+  }
+}

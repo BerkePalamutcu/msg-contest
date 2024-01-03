@@ -1,7 +1,7 @@
 .register-card {
   padding: 1rem;
-  min-width: 30rem;
-  min-height: 30rem;
+  min-width: 50rem;
+  min-height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +19,15 @@
 
   .register-title {
     text-align: center;
+  }
+
+  .register-input{
+    max-width: 100px !important;
+  }
+
+  .email, .password, .names {
+    max-width: 50%;
+    min-width: 50%;
   }
 
   .register-form {

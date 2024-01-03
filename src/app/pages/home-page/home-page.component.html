@@ -1,1 +1,55 @@
-<p>home-page works!</p>
+<div class="homepage-container">
+  <mat-drawer-container class="sidebar-container" autosize>
+    <mat-drawer #drawer class="sidebar-wrapper" mode="side">
+      <mat-list>
+        <h2>Menu</h2>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          Achievements
+          <mat-icon>military_tech</mat-icon>
+        </mat-list-item>
+        <mat-list-item>Leaderboard
+        <mat-icon>leaderboard</mat-icon>
+        </mat-list-item>
+        <mat-list-item>Generate Vouchers
+        <mat-icon>redeem</mat-icon>
+        </mat-list-item>
+        <mat-list-item>Recycling Content
+        <mat-icon>school</mat-icon>
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+
+    <div class="content">
+      <div class="title-wrapper">
+        <img src="assets/logo.webp" class="app-logo" alt="logo"/>
+        <div>
+          <h1 class="title">.MSG RECYCLING</h1>
+          <ng-container *ngIf="user$ | async as userData">
+            <p class="userText">{{userData.role}}: {{userData.name + ' ' + userData.lastName}}</p>
+          </ng-container>
+
+        </div>
+
+      </div>
+
+      <div class="menu-wrapper">
+        <button mat-button (click)="drawer.toggle()" class="btn toggleBtn">
+          <mat-icon>menu</mat-icon>
+          MENU
+        </button>
+        <button mat-button class="btn signoutBtn" (click)="signout.signOutToLoginPage()">
+          <mat-icon>logout</mat-icon>
+          SIGN OUT
+        </button>
+      </div>
+    </div>
+
+    <mat-tab-group animationDuration="500ms" class="tabs">
+      <mat-tab label="Recycling Centers">
+        <app-recycling-table></app-recycling-table>
+      </mat-tab>
+      <mat-tab label="Contribute">Content 2</mat-tab>
+    </mat-tab-group>
+  </mat-drawer-container>
+</div>
